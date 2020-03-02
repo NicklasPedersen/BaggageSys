@@ -1,0 +1,20 @@
+{
+    "flights":
+        [
+            {
+                "id":"0",
+                "destination":"COPENHAGEN",
+                "departure":"28-02-2020 11:20:32"
+            },
+            {
+                "id":"1",
+                "destination":"LONDON",
+                "departure":"28-02-2020 11:20:32"
+            },
+            {
+                "id":"2",
+                "destination":"PARIS",
+                "departure":"28-02-2020 11:20:32"
+            },
+        ]
+}
