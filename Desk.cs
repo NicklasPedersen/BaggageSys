@@ -5,17 +5,17 @@ using System.Threading;
 
 namespace BaggageSys
 {
+    // The desk is where passengers check in their luggage
     class Desk
     {
-        Buffer<Baggage> baggageBuffer;
-        Buffer<Passenger> passengerQueue;
-        int id;
+        private Buffer<Baggage> baggageBuffer { get; }
+        private Buffer<Passenger> passengerQueue { get; } = new Buffer<Passenger>(10);
+        public int Id { get; }
 
         public Desk(Buffer<Baggage> baggageBuffer, int id)
         {
-            this.id = id;
+            Id = id;
             this.baggageBuffer = baggageBuffer;
-            passengerQueue = new Buffer<Passenger>(10);
         }
         public void CheckIn(Passenger p)
         {
@@ -26,7 +26,7 @@ namespace BaggageSys
             while (true)
             {
                 Passenger passenger = passengerQueue.TryGetItem();
-                Console.WriteLine("passenger " + passenger.passengerNumber + " checked in desk " + id);
+                Console.WriteLine("passenger " + passenger.passengerNumber + " checked in desk " + Id);
                 foreach(Baggage b in passenger.baggages)
                 {
                     baggageBuffer.TryPutItem(b);
